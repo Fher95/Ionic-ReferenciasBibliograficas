@@ -1,0 +1,7 @@
+{
+  "name": "ReferenciasBibliograficas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
