@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar Referencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formulario">
+    <ion-item>
+      <ion-label position="floating">ID Referencia</ion-label>
+      <ion-input
+        type="number"
+        formControlName="idreferencia"
+        name="idreferencia"
+        readonly="{{!this.modoEdicion}}"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Titulo Publicacion</ion-label>
+      <ion-input
+        type="text"
+        formControlName="titulopub"
+        name="titulo"
+        readonly="{{!this.modoEdicion}}"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Autores</ion-label>
+      <ion-input
+        type="text"
+        formControlName="autores"
+        name="autores"
+        readonly="{{!this.modoEdicion}}"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tipo Publicacion</ion-label>
+      <ion-input
+        type="text"
+        formControlName="tipopub"
+        name="tipopub"
+        readonly="{{!this.modoEdicion}}"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Evento o revista</ion-label>
+      <ion-input
+        type="text"
+        formControlName="eventorevista"
+        name="eventorevista"
+        readonly="{{!this.modoEdicion}}"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Codigo identificador documento</ion-label>
+      <ion-input
+        type="text"
+        formControlName="doi"
+        name="doi"
+        readonly="{{!this.modoEdicion}}"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Año Publicacion</ion-label>
+      <ion-input
+        type="number"
+        formControlName="anyopub"
+        name="anyopub"
+        readonly="{{!this.modoEdicion}}"
+      ></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-row position="bottom">
+    <ion-col>
+      <ion-button
+        *ngIf="this.modoEdicion"
+        type="submit"
+        color="primary"
+        expand="block"
+        (click)="guardarReferencia()"
+      >
+        Guardar
+      </ion-button>
+      <ion-button
+        *ngIf="!this.modoEdicion"
+        type="submit"
+        color="secondary"
+        expand="block"
+        (click)="activarEdicion()"
+      >
+        Modificar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Referencias Bibliográficas</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="presentPopover()">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+
+    <ion-buttons slot="end">
+      <ion-button (click)="_popOver($event)">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List of Text Items -->
+  <ion-list>
+    <ion-item *ngFor="let item of refs">
+      <ion-label>
+        <h2>{{item.titulopub}}</h2>
+        <h3>{{item.autores + ', ' + item.anyopub}}</h3>
+        <p>{{item.eventorevista}}</p>
+      </ion-label>
+      <ion-button (click)="this.verDetalles(item.id)"
+        ><ion-icon name="eye-outline"></ion-icon></ion-button
+      >
+      <ion-button color="danger" (click)="this.eliminarReferencia(item.id)"
+        ><ion-icon name="trash-outline"></ion-icon></ion-button
+      >
+    </ion-item>
+  </ion-list>
+
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="this.onAgregarReferencia()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
