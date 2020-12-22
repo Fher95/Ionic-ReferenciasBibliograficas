@@ -16,8 +16,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.user$.pipe(
       take(1),
-      map(user => {
-        console.log('User in GUard: ', user);
+      map(user => {        
         if (user) {          
           return true;
         } else {

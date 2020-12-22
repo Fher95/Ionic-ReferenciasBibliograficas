@@ -22,8 +22,7 @@ export class AddReferenciaPage implements OnInit {
     private nav: NavController,
     private referenciaService: ReferenciasService,
     private loadingController: LoadingController,
-    private authService: AuthService,
-    private db: AngularFirestore,
+    private authService: AuthService,    
     private fb: FormBuilder
   ) {}
 

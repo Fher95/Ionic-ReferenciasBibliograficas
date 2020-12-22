@@ -15,8 +15,9 @@ export class RegisterPage implements OnInit {
   async onRegister(email, password) {
     try {
       const user = await this.authService.register(email.value, password.value);
-      this.redirectUser(user.emailVerified);
+      // this.redirectUser(user.emailVerified);      
       if (user) {
+        this.router.navigate(["verificar-email", true]);
       }
     } catch (error) {
       console.log;

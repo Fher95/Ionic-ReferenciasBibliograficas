@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
       const user = await this.authService.login(email.value, password.value);
       if (user) {
         // ToDo: Verificar Email
-        const verificado = this.authService.isEmailVerified(user);                
+        // const verificado = this.authService.isEmailVerified(user);                
         // this.redirectUser(verificado);
         this.redirectUser(true);        
       } else {
@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
       const user = await this.authService.loginGoogle()
       if (user) {
         // ToDo Check Email
-        const verificado =  this.authService.isEmailVerified(user);
+        // const verificado =  this.authService.isEmailVerified(user);
         // this.redirectUser(verificado);
         this.redirectUser(true);
       } 

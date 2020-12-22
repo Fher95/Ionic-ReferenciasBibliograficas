@@ -23,45 +23,12 @@ export class AuthService {
       switchMap((user) => {
         if (user) {
           this.userIdActual = user.uid;
-          console.log('Usuario iniciado en auth: ', user.uid);
+          console.log("Usuario iniciado en auth: ", user.uid);
           return this.afs.doc(`users/${user.uid}`).valueChanges();
         }
         return of(null);
       })
     );
-  }
-
-  async resetPassword(email: string): Promise<void> {
-    try {
-      return this.afAuth.sendPasswordResetEmail(email);
-    } catch (error) {
-      console.log("Reset Password Error: ", error);
-    }
-  }
-
-  async loginGoogle(): Promise<User> {
-    try {
-      const { user } = await this.afAuth.signInWithPopup(
-        new firebase.auth.GoogleAuthProvider()
-      );
-      this.updateUserData(user);
-      return user;
-    } catch (error) {
-      console.log("Login Google Error: ", error);
-    }
-  }
-
-  async register(email: string, password: string): Promise<User> {
-    try {
-      const { user } = await this.afAuth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      // await this.sendVerificationEmail(); //ToDO: Descomentar
-      return user;
-    } catch (error) {
-      console.log("Register Error: ", error);
-    }
   }
 
   async login(email, password): Promise<User> {
@@ -75,6 +42,40 @@ export class AuthService {
       return user;
     } catch (error) {
       console.log("Login Error: ", error);
+    }
+  }
+
+  async loginGoogle(): Promise<User> {
+    try {
+      const { user } = await this.afAuth.signInWithPopup(
+        new firebase.auth.GoogleAuthProvider()
+      );
+      this.userIdActual = user.uid;
+      this.updateUserData(user);
+      return user;
+    } catch (error) {
+      console.log("Login Google Error: ", error);
+    }
+  }
+
+  async resetPassword(email: string): Promise<void> {
+    try {
+      return this.afAuth.sendPasswordResetEmail(email);
+    } catch (error) {
+      console.log("Reset Password Error: ", error);
+    }
+  }
+
+  async register(email: string, password: string): Promise<User> {
+    try {
+      const { user } = await this.afAuth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      // await this.sendVerificationEmail(); //ToDO: Descomentar
+      return user;
+    } catch (error) {
+      console.log("Register Error: ", error);
     }
   }
 

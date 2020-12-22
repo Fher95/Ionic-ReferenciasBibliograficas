@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./verificar-email/verificar-email.module').then( m => m.VerificarEmailPageModule)
   },
   {
+    path: 'verificar-email/:registrado',
+    loadChildren: () => import('./verificar-email/verificar-email.module').then( m => m.VerificarEmailPageModule)
+  },
+  {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },

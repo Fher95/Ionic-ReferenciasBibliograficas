@@ -62,7 +62,7 @@ export class ListaReferenciasPage implements OnInit {
       
   }
 
-  async cargarLista() {
+  async cargarLista() {    
     const loading = await this.loadingController.create({
       message: "Cargando lista...",
     });
