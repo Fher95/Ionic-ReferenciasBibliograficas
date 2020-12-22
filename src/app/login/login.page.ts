@@ -35,8 +35,8 @@ export class LoginPage implements OnInit {
       if (user) {
         // ToDo: Verificar Email
         const verificado = this.authService.isEmailVerified(user);                
-        this.redirectUser(verificado);
-        // this.redirectUser(true);        
+        // this.redirectUser(verificado);
+        this.redirectUser(true);        
       } else {
         this.redirectUser(false);
       }

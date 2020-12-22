@@ -16,6 +16,7 @@
         formControlName="idreferencia"
         name="idreferencia"
         readonly="{{!this.modoEdicion}}"
+        required
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -25,6 +26,7 @@
         formControlName="titulopub"
         name="titulo"
         readonly="{{!this.modoEdicion}}"
+        required
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -34,6 +36,7 @@
         formControlName="autores"
         name="autores"
         readonly="{{!this.modoEdicion}}"
+        required
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -43,6 +46,7 @@
         formControlName="tipopub"
         name="tipopub"
         readonly="{{!this.modoEdicion}}"
+        required
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -60,7 +64,7 @@
         type="text"
         formControlName="doi"
         name="doi"
-        readonly="{{!this.modoEdicion}}"
+        readonly="{{!this.modoEdicion}}"        
       ></ion-input>
     </ion-item>
 
@@ -71,6 +75,7 @@
         formControlName="anyopub"
         name="anyopub"
         readonly="{{!this.modoEdicion}}"
+        required
       ></ion-input>
     </ion-item>
   </form>
@@ -83,6 +88,7 @@
         color="primary"
         expand="block"
         (click)="guardarReferencia()"
+        [disabled]="this.formulario.invalid"
       >
         Guardar
       </ion-button>

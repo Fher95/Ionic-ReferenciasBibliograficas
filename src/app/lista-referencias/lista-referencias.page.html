@@ -20,7 +20,7 @@
   <!-- List of Text Items -->
   <ion-list>
     <ion-item *ngFor="let item of refs">
-      <ion-label>
+      <ion-label (click)="this.verDetalles(item.id)">
         <h2>{{item.titulopub}}</h2>
         <h3>{{item.autores + ', ' + item.anyopub}}</h3>
         <p>{{item.eventorevista}}</p>

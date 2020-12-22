@@ -5,7 +5,7 @@ import { ReferenciasService } from "../services/referencias.service";
 import { ReferenciaBibliografica } from "../models/referencias.interface";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AuthService } from "../services/auth.service";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { tap } from "rxjs/operators";
 
 @Component({
@@ -29,13 +29,13 @@ export class AddReferenciaPage implements OnInit {
 
   crearFormulario() {
     this.formulario = this.fb.group({
-      idreferencia: [null],
-      titulopub: [null],
-      autores: [null],
-      tipopub: [null],
+      idreferencia: [null, Validators.required],
+      titulopub: [null, Validators.required],
+      autores: [null, Validators.required],
+      tipopub: [null, Validators.required],
       eventorevista: [null],
       doi: [null],
-      anyopub: [null],
+      anyopub: [null, Validators.required],
     });
   }
 
